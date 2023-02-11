@@ -1,0 +1,17 @@
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\bin\Debug\net6.0-windows\Calculator.exe
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\bin\Debug\net6.0-windows\Calculator.deps.json
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\bin\Debug\net6.0-windows\Calculator.runtimeconfig.json
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\bin\Debug\net6.0-windows\Calculator.dll
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\bin\Debug\net6.0-windows\Calculator.pdb
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.csproj.AssemblyReference.cache
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.Form1.resources
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.csproj.GenerateResource.cache
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.AssemblyInfoInputs.cache
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.AssemblyInfo.cs
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.csproj.CoreCompileInputs.cache
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.dll
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\refint\Calculator.dll
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.pdb
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\Calculator.genruntimeconfig.cache
+D:\MIT_LAB\DBS\L1\Calculator\Calculator\obj\Debug\net6.0-windows\ref\Calculator.dll
