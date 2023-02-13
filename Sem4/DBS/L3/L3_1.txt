@@ -1,0 +1,291 @@
+SQL> create table PERSON (
+  2     driver_id# varchar(30),
+  3     name varchar(50),
+  4     Address varchar(100),
+  5     primary key(driver_id#));
+
+Table created.
+
+SQL> create table CAR(
+  2     regno varchar(20),
+  3     model varchar(30),
+  4     Year int);
+
+Table created.
+
+SQL> create table ACCIDENT(
+  2     report_number int,
+  3     accd_date date,
+  4     location varchar(30));
+
+Table created.
+
+SQL> alter table CAR add primary key(regno);
+
+Table altered.
+
+SQL> alter table ACCIDENT add primary key(report_number);
+
+Table altered.
+
+SQL> create table OWNS(
+  2     driver_id# varchar(30),
+  3     regno varchar(20),
+  4     primary key(driver_id#,regno),
+  5     foreign key(driver_id#) references PERSON,
+  6     foreign key(regno) references CAR);
+
+Table created.
+
+SQL> create table PARTICIPATED(
+  2     driver_id# varchar(30),
+  3     regno varchar(20),
+  4     report_number int,
+  5     damage_amount int,
+  6     primary key(driver_id#,regno,report_number),
+  7     foreign key(driver_id#) references PERSON,
+  8     foreign key(regno) references CAR,
+  9     foreign key(report_number) references ACCIDENT);
+
+Table created.
+
+SQL> insert into person values('00A','Aadarsh Param Akhouri','MIT Manipal');
+
+1 row created.
+
+SQL> desc person;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DRIVER_ID#                                NOT NULL VARCHAR2(30)
+ NAME                                               VARCHAR2(50)
+ ADDRESS                                            VARCHAR2(100)
+
+SQL> select* from person
+  2  ;
+
+DRIVER_ID#
+------------------------------
+NAME
+--------------------------------------------------
+ADDRESS
+--------------------------------------------------------------------------------
+00A
+Aadarsh Param Akhouri
+MIT Manipal
+
+SQL> insert into person values('01A','Kishore Wadhwani','MIT Manipal');
+
+1 row created.
+
+SQL> insert into person values('02A','Arjun Shetty','MIT Manipal');
+
+1 row created.
+
+SQL> insert into person values('03A','Aditya Arunachalam','Some Pshyc College');
+
+1 row created.
+
+SQL> insert into person values('04A','Nipun Mittal','JP University');
+
+1 row created.
+
+SQL> alter table person modify driver_id# varchar(5);
+
+Table altered.
+
+SQL> alter table person modify name varchar(25);
+
+Table altered.
+
+SQL> alter table person modify name varchar(20);
+alter table person modify name varchar(20)
+                          *
+ERROR at line 1:
+ORA-01441: cannot decrease column length because some value is too big
+
+
+SQL> alter table person modify address varchar(20);
+
+Table altered.
+
+SQL> select* from person;
+
+DRIVE NAME                      ADDRESS
+----- ------------------------- --------------------
+00A   Aadarsh Param Akhouri     MIT Manipal
+01A   Kishore Wadhwani          MIT Manipal
+02A   Arjun Shetty              MIT Manipal
+03A   Aditya Arunachalam        Some Pshyc College
+04A   Nipun Mittal              JP University
+
+SQL> insert into car values('00001','AUDI XLX',2004);
+
+1 row created.
+
+SQL> insert into car values('00002','MARUTI SUZUKI',2003);
+
+1 row created.
+
+SQL> insert into car values('00003','MARUTI SUZUKI',2005);
+
+1 row created.
+
+SQL> insert into car values('00004','AUDI XLX',2000);
+
+1 row created.
+
+SQL> insert into car values('00005','TELSA',1945);
+
+1 row created.
+
+SQL> insert into Accident values(0000,'01-jan-0001','NOWHERE');
+
+1 row created.
+
+SQL> insert into Accident values(0001,'14-FEB-2023','MIT GATE 2');
+
+1 row created.
+
+SQL> insert into Accident values(0002,'23-DEC-2020','MANGALORE AIRPORT');
+
+1 row created.
+
+SQL> insert into Accident values(0003,'17-MAR-2019','BANGALORE AIRPORT');
+
+1 row created.
+
+SQL> insert into Accident values(0003,'26-NOV-2008','TAJ HOTEL');
+insert into Accident values(0003,'26-NOV-2008','TAJ HOTEL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (CCE126.SYS_C0014622) violated
+
+
+SQL> insert into Accident values(0004,'26-NOV-2008','TAJ HOTEL');
+
+1 row created.
+
+SQL> insert into Accident values(0012,'26-DEC-2000','MIT HOSTEL');
+
+1 row created.
+
+SQL> insert into OWNS values('00A','00001');
+
+1 row created.
+
+SQL> insert into OWNS values('01A','00002');
+
+1 row created.
+
+SQL> insert into OWNS values('02A','00003');
+
+1 row created.
+
+SQL> insert into OWNS values('03A','00004');
+
+1 row created.
+
+SQL> insert into OWNS values('04A','00005');
+
+1 row created.
+
+SQL> insert into participated values('02A','00003',0004,100000);
+
+1 row created.
+
+SQL> insert into participated values('00A','00001',0000,500);
+
+1 row created.
+
+SQL> insert into participated values('02A','00002',00002,2000);
+
+1 row created.
+
+SQL> insert into participated values('01A','00002',00002,12000);
+
+1 row created.
+
+SQL> insert into participated values('04A','00004',00001,12000);
+
+1 row created.
+
+SQL> insert into participated values('01A','00002',0012,1000);
+
+1 row created.
+
+SQL> update participated set damage_amount = 25000  where report_number = 0012;
+
+1 row updated.
+
+REPORT_NUMBER ACCD_DATE LOCATION
+------------- --------- -----------------
+            0 01-JAN-01 NOWHERE
+            1 14-FEB-23 MIT GATE 2
+            2 23-DEC-20 MANGALORE AIRPORT
+            3 17-MAR-19 BANGALORE AIRPORT
+            4 26-NOV-08 TAJ HOTEL
+           12 26-DEC-00 MIT HOSTEL
+
+6 rows selected.
+
+SQL> delete from accident where extract(year from accd_date) = 2000;
+delete from accident where extract(year from accd_date) = 2000
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (CCE126.SYS_C0014678) violated - child record
+found
+
+SQL> delete from accident where extract(year from accd_date) = 2019;
+
+1 row deleted.
+
+SQL> select* from accident;
+
+REPORT_NUMBER ACCD_DATE LOCATION
+------------- --------- -----------------
+            0 01-JAN-01 NOWHERE
+            1 14-FEB-23 MIT GATE 2
+            2 23-DEC-20 MANGALORE AIRPORT
+            4 26-NOV-08 TAJ HOTEL
+           12 26-DEC-00 MIT HOSTEL
+
+SQL> alter table car add condition varchar(10);
+
+Table altered.
+
+SQL> select* from car
+  2  ;
+
+REGNO   MODEL                 YEAR CONDITION
+------- --------------- ---------- ----------
+00001   AUDI XLX              2004
+00002   MARUTI SUZUKI         2003
+00003   MARUTI SUZUKI         2005
+00004   AUDI XLX              2000
+00005   TELSA                 1945
+
+SQL> alter table car drop column condition;
+
+Table altered.
+
+SQL> select* from car;
+
+REGNO   MODEL                 YEAR
+------- --------------- ----------
+00001   AUDI XLX              2004
+00002   MARUTI SUZUKI         2003
+00003   MARUTI SUZUKI         2005
+00004   AUDI XLX              2000
+00005   TELSA                 1945
+
+SQL> alter table accident add check (location = upper(location));
+
+Table altered.
+
+SQL> insert into Accident values(0012,'26-DEC-2000','MIT HOSTEl');
+insert into Accident values(0012,'26-DEC-2000','MIT HOSTEl')
+*
+ERROR at line 1:
+ORA-02290: check constraint (CCE126.SYS_C0014811) violated
+
+	
