@@ -1,0 +1,6 @@
+SQL> select name "OWNER_NAME" from person natural join participated group by(name) having count(*) >= 2;
+
+OWNER_NAME
+-------------------------
+Kishore Wadhwani
+Arjun Shetty

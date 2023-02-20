@@ -1,0 +1,5 @@
+SQL> select name from person where driver_id# = (select driver_id# from person minus select driver_id# from participated);
+
+NAME
+-------------------------
+Aditya Arunachalam

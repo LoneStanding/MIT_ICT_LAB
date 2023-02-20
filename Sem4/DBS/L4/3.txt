@@ -1,0 +1,8 @@
+SQL> select name "OWNER_NAME", count(*) "Total No. of Accidents", sum(damage_amount) from person natural join participated group by(name) order by sum(damage_amount) desc;
+
+OWNER_NAME                Total No. of Accidents SUM(DAMAGE_AMOUNT)
+------------------------- ---------------------- ------------------
+Arjun Shetty                                   2             101000
+Kishore Wadhwani                               2              26000
+Aadarsh Param Akhouri                          1              25000
+Nipun Mittal                                   1              25000

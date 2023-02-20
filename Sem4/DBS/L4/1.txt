@@ -1,0 +1,5 @@
+SQL> select count(distinct driver_id#) from participated natural join accident where extract(year from accd_date) = 2008;
+
+COUNT(DISTINCTDRIVER_ID#)
+-------------------------
+                        1

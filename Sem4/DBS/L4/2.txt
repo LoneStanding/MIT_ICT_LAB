@@ -1,0 +1,5 @@
+SQL> select count(report_number) "Total Accidents" from participated natural join car where model='MARUTI SUZUKI';
+
+Total Accidents
+---------------
+              4
