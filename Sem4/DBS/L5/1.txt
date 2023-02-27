@@ -1,0 +1,121 @@
+SQL> create table student (
+  2     regno varchar(20),
+  3     name varchar(50),
+  4     major varchar(20),
+  5     bdate date,
+  6     primary key(regno));
+
+Table created.
+
+SQL> create table course (
+  2     course# int,
+  3     cname varchar(30),
+  4     dept varchar(30),
+  5     primary key(course#));
+
+Table created.
+
+SQL> create table enroll (
+  2     regno varchar(20),
+  3     course# int,
+  4     primary key(regno,course#));
+
+Table created.
+
+SQL> create table book_adoption (
+  2     course# int,
+  3     sem int,
+  4     book_isbn int,
+  5     primary key(course#,book_isbn));
+
+Table created.
+
+SQL> create table text (
+  2     book_isbn int,
+  3     booktitle varchar(50),
+  4     publisher varchar(50),
+  5     author varchar(50),
+  6     primary key(book_isbn));
+
+Table created.
+
+SQL> alter table enroll add constraint corse foreign key (course#) references course(course#);
+
+Table altered.
+
+SQL> alter table book_adoption add constraint bookno foreign key (book_isbn) references text(book_isbn);
+
+Table altered.
+
+SQL> alter table enroll add constraint rno foreign key (regno) references student(regno);
+
+Table altered.
+
+SQL> alter table book_adoption add constraint corse2 foreign key (course#) references course(course#);
+
+Table altered.
+
+SQL> insert all
+  2  into student values('210953126', 'Aadarsh Param Akhouri', 'CCE', '02-Mar-2004')
+  3  into student values('xxxxxxxxx', 'Adolf Hitler', 'ART', '20-Apr-1889')
+  4  into student values('210953120', 'Aaryan Sibal', 'B.Comm', '17-jun-2003')
+  5  into student values('210953122', 'Nipun Mittal', 'CSE', '23-Feb-2003')
+  6  into student values('210953086', 'Kishore Wadhwani', 'CCE', '25-Dec-2003')
+  7  select 1 from dual;
+
+5 rows created.
+
+SQL> insert all
+  2  into course values(101,'Computer and Comm. Engineering', 'ICT')
+  3  into course values(100,'Computer Science Engineering', 'CSE')
+  4  into course values(103,'Electrical Engineering', 'Electrical')
+  5  into course values(104,'Mechatronics', 'Mechanical')
+  6  into course values(102,'Information Technology', 'ICT')
+  7  select 1 from dual;
+
+5 rows created.
+
+SQL> insert all
+  2  into text values(12355, 'Garden of Sunset', 'Silum Publications', 'Silvaster')
+  3  into text values(12356,'Joker Chemistry', 'Sloane Publicatoins', 'Gaeden')
+  4  into text values(12258,'Concentration Camps','NAZI Publications','Adolf ******')
+  5  into text values(11458,'Dragonian Physics', 'Sloane Publications','Forger')
+  6  into text values(14589,'Sunset of Dawn', 'Silum Publications', 'Silvaster')
+  7  into text values(66589, 'Jew Hunt', 'NAZI Publications', 'Ad*o** H**l*r')
+  8  select 1 from dual;
+
+6 rows created.
+
+SQL> insert all
+  2  into text values(58966, 'Einstein Mathematics', 'High Publications', 'Albert')
+  3  into text values(66666, 'Devil`s Biology', 'Sloane Publications', 'Sloane')
+  4  into text values(22369, 'History of Death', 'Silum Publications', 'Silvaster')
+  5  into text values(86315, 'Theory of Life', 'High Publications', 'Darwin')
+  6  into text values(95423, 'Dwarwen Robotics', 'Sloane Publications', 'Gugnir')
+  7  select 1 from dual;
+
+5 rows created.
+
+SQL> insert all
+  2  into enroll values('xxxxxxxxx', 104)
+  3  into enroll values('210953126', 101)
+  4  into enroll values('210953086', 101)
+  5  into enroll values('210953122', 100)
+  6  into enroll values('210953120', 103)
+  7  select 1 from dual;
+
+5 rows created.
+
+
+insert all
+into book_adoption values(101, 2, 58966)
+into book_adoption values(100, 2, 66666)
+into book_adoption values(101, 2, 86315)
+into book_adoption values(103, 2, 95423)
+into book_adoption values(104, 2, 95423)
+into book_adoption values(104, 3, 22369)
+into book_adoption values(101, 3, 11458)
+into book_adoption values(104, 3, 12258)
+into book_adoption values(104, 3, 66589)
+into book_adoption values(100, 3, 11458)
+select 1 from dual;
