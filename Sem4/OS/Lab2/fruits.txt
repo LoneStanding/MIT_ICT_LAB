@@ -1,0 +1,8 @@
+apple
+apples
+pineapples
+fruit-apple
+banana
+pear
+peach
+orange

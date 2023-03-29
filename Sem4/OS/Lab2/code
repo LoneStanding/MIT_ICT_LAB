@@ -1,0 +1,93 @@
+student@MIT-ICT-LAB5-21:~$ sed 's/unix/linux/3g' geekfile.txt
+sed: can't read geekfile.txt: No such file or directory
+student@MIT-ICT-LAB5-21:~$ cd 210953126/Lab2
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ sed 's/unix/linux/3g' geekfile.txt
+unix is a great os 
+Unix is fast and efficient
+Linux.Unix.unix 
+
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ echo Hello
+Hello
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ ps
+    PID TTY          TIME CMD
+   5457 pts/0    00:00:00 bash
+   5477 pts/0    00:00:00 ps
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ ps -a
+    PID TTY          TIME CMD
+   1065 tty1     00:00:00 Xorg
+   1135 tty1     00:00:00 dbus-run-sessio
+   1136 tty1     00:00:00 dbus-daemon
+   1137 tty1     00:00:00 gnome-session-b
+   1184 tty1     00:00:00 at-spi-bus-laun
+   1189 tty1     00:00:00 dbus-daemon
+   1219 tty1     00:00:01 gnome-shell
+   1237 tty1     00:00:00 ibus-daemon
+   1240 tty1     00:00:00 ibus-memconf
+   1243 tty1     00:00:00 ibus-x11
+   1248 tty1     00:00:00 ibus-portal
+   1252 tty1     00:00:00 at-spi2-registr
+   1259 tty1     00:00:00 xdg-permission-
+   1271 tty1     00:00:00 gjs
+   1287 tty1     00:00:00 gsd-sharing
+   1288 tty1     00:00:00 gsd-wacom
+   1290 tty1     00:00:00 gsd-color
+   1291 tty1     00:00:00 gsd-keyboard
+   1292 tty1     00:00:00 gsd-print-notif
+   1293 tty1     00:00:00 gsd-rfkill
+   1294 tty1     00:00:00 gsd-smartcard
+   1295 tty1     00:00:00 gsd-datetime
+   1296 tty1     00:00:00 gsd-media-keys
+   1297 tty1     00:00:00 gsd-screensaver
+   1298 tty1     00:00:00 gsd-sound
+   1299 tty1     00:00:00 ibus-engine-sim
+   1300 tty1     00:00:00 gsd-a11y-settin
+   1301 tty1     00:00:00 gsd-housekeepin
+   1302 tty1     00:00:00 gsd-power
+   1359 tty1     00:00:00 gsd-printer
+   1620 tty2     00:02:00 Xorg
+   1631 tty2     00:00:00 gnome-session-b
+   5478 pts/0    00:00:00 ps
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ cat alphabet.txt|tr [a-z] [A-Z]
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ sort number.txt
+1 2 3 4 5 9 8 7 10 2 4 
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ sort fruits.txt -o sortfruits.txt
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ sort -r sortfruits.txt
+pineapples
+pear
+peach
+orange
+fruit-apple
+banana
+apples
+apple
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ cat fruits.txt
+apple
+apples
+pineapples
+fruit-apple
+banana
+pear
+peach
+orange
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ cat sortfruits.txt
+apple
+apples
+banana
+fruit-apple
+orange
+peach
+pear
+pineapples
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ wc *
+  1   1  27 alphabet.txt
+  8   8  61 fruits.txt
+  4  11  65 geekfile.txt
+  1  11  24 number.txt
+  8   8  61 sortfruits.txt
+ 22  39 238 total
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ ^C
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ touch code
+student@MIT-ICT-LAB5-21:~/210953126/Lab2$ 
+
+
